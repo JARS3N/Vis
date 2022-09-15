@@ -1,7 +1,7 @@
 
-Package: VIS
+Package: vis
 Type: Package
-Title: VIS
+Title: vis
 Version: 0.1.6
 Author: J.Arsenault
 Description: machine vision
