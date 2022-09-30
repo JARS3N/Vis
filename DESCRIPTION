@@ -9,6 +9,7 @@ License: none
 Imports:
         XML,
         dplyr,
-        tibble
+        tibble,
+        parallel
 Encoding: UTF-8
 LazyData: true
