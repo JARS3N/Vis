@@ -4,7 +4,14 @@ parse<-function (xml){
   # instead of throwing an error when the document is empty it will just return NULL
   if(file.size(xml) == 0L){return(NULL)}
   #
-  d<-XML::xmlTreeParse(xml, useInternalNodes = T)
+  d <- 
+  tryCatch(
+  {XML::xmlTreeParse(xml,
+                    useInternalNodes = T)},
+  error = function(e){message("fail!")
+    return(NULL)
+    }
+  )
   barcode <- xpathSApply(d,path = "//InspectionDetailsItem[Name='Bar Code']//Details",xmlValue)
   if(is.null(barcode)){return(NULL)}
   tbl <- xpathSApply(d, path = "//List//InspectionDetailsItem[Name='Results']//Details",xmlValue)
