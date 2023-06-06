@@ -1,6 +1,9 @@
 parse<-function (xml){
   require(XML)
   require(dplyr)
+  # instead of throwing an error when the document is empty it will just return NULL
+  if(file.size(xml) == 0L){return(NULL)}
+  #
   d<-XML::xmlTreeParse(xml, useInternalNodes = T)
   barcode <- xpathSApply(d,path = "//InspectionDetailsItem[Name='Bar Code']//Details",xmlValue)
   if(is.null(barcode)){return(NULL)}
