@@ -12,6 +12,7 @@ parse<-function (xml){
     return(NULL)
     }
   )
+  if(is.null(d)){return(NULL)}
   barcode <- xpathSApply(d,path = "//InspectionDetailsItem[Name='Bar Code']//Details",xmlValue)
   if(is.null(barcode)){return(NULL)}
   tbl <- xpathSApply(d, path = "//List//InspectionDetailsItem[Name='Results']//Details",xmlValue)
