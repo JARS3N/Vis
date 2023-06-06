@@ -4,10 +4,10 @@ parse<-function (xml){
   # instead of throwing an error when the document is empty it will just return NULL
   if(file.size(xml) == 0L){return(NULL)}
   #
-  d <- 
+ d <- 
   tryCatch(
-  {XML::xmlTreeParse(xml,
-                    useInternalNodes = T)},
+  {suppressWarnings(XML::xmlTreeParse(xml,
+                    useInternalNodes = T))},
   error = function(e){message("fail!")
     return(NULL)
     }
