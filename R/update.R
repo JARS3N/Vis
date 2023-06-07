@@ -1,7 +1,9 @@
 update <- function() {
   library(vis)
   library(dplyr)
-  top <- "/mnt/LSAG/Spotting/Logging"
+  sys <-Sys.info()['sysname']
+  head <-c("Windows" = "G:","Linux" = file.path("","mnt","LSAG"))[sys]
+  top <- file.path(head,"Spotting","Logging")
   csvdir <- file.path(top, "CSVs")
   csvs <- list.files(csvdir, full.names = T, pattern = '.[.]csv')
   done <- gsub("_MV[.]csv", "", basename(csvs))
@@ -17,7 +19,7 @@ update <- function() {
       message(fin)
     } else{
       x <- vis::aquire(u)
-      dirx <- file.path(top, "CSVs/%s%_MV.csv")
+      dirx <- file.path(top, "CSVs","%s%_MV.csv")
       write.csv(x, gsub("%s%", lot, dirx), row.names = F)
       message(fin)
     }
