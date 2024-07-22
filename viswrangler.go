@@ -55,7 +55,7 @@ func ParseFlags() Config {
         fmt.Println("Options:")
         fmt.Println("  -o       Output directory same as origin directory")
         fmt.Println("  -c       Output directory as current directory")
-        fmt.Println("  -d       Output directory as default directory (G:\\Spotting\\Logging\\CSV)")
+        fmt.Println("  -d       Output directory as default directory (G:\\Spotting\\Logging\\CSVs)")
         fmt.Println("  <path>   Specify a specific output directory")
         fmt.Println("  -silent  Suppress output")
         fmt.Println("  -help    Show usage information.")
